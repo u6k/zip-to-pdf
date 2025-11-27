@@ -1,0 +1,45 @@
+[project]
+name = "zip-to-pdf"
+version = "1.0.0-dev"
+description = "画像zipをpdfに変換する。"
+authors = [
+    {name = "u6k",email = "u6k.apps@gmail.com"}
+]
+license = {text = "MIT License"}
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pillow (>=12.0.0,<13.0.0)",
+    "img2pdf (>=0.6.3,<0.7.0)"
+]
+
+[dependency-groups]
+dev = [
+    "isort (>=7.0.0,<8.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)",
+    "flake8-pyproject (>=1.2.3,<2.0.0)",
+    "autopep8 (>=2.3.2,<3.0.0)",
+    "poethepoet (>=0.37.0,<0.38.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+zip-to-pdf = "zip_to_pdf.__main__:main"
+
+[tool.autopep8]
+max_line_length = 1000
+
+[tool.flake8]
+max-line-length = 1000
+
+[tool.isort]
+profile = "black"
+line_length = 1000
+
+[tool.poe.tasks]
+lint = "flake8 ./zip_to_pdf/"
+fix = [{cmd="autopep8 -ivr ./zip_to_pdf/"}, {cmd="isort ./zip_to_pdf/"}]
