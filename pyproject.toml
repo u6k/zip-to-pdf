@@ -1,6 +1,6 @@
 [project]
 name = "zip-to-pdf"
-version = "1.0.0-dev"
+version = "1.0.0"
 description = "画像zipをpdfに変換する。"
 authors = [
     {name = "u6k",email = "u6k.apps@gmail.com"}
